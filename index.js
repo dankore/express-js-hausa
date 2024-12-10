@@ -1,15 +1,9 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const path = require('path')
 
-app.get('/', function (request, response) {
-  response.send('Barka duniya!');
-});
-
-app.get('/barka', function (request, response) {
-  const { suna } = request.query
-  response.send(suna);
-});
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.listen(PORT, function () {
   console.log('Server listening on port ', PORT);
